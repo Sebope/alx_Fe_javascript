@@ -32,9 +32,9 @@ function populateCategories() {
 
     
     // Restore the last selected filter from local storage
-    const lastFilter = localStorage.getItem('lastFilter');
-    if (lastFilter) {
-        categoryFilter.value = lastFilter;
+    const selectedCategory = localStorage.getItem('lastFilter');
+    if (selectedCategory) {
+        categoryFilter.value = selectedCategory;
         filterQuotes(); // Apply the filter
     }
 }
