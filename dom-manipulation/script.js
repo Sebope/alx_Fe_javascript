@@ -4,11 +4,11 @@ let quotes = JSON.parse(localStorage.getItem('quotes')) || [];
 // Function to save quotes to local storage
 function saveQuotes() {
     localStorage.setItem('quotes', JSON.stringify(quotes));
-    populateCategoryFilter();
+    populateCategories();
 }
 
 // Function to populate the category filter dropdown
-function populateCategoryFilter() {
+function populateCategories() {
     const categoryFilter = document.getElementById('categoryFilter');
     const categories = new Set();
     
@@ -160,5 +160,5 @@ createAddQuoteForm();
 // Load and display the last viewed quote from session storage (optional)
 document.addEventListener('DOMContentLoaded', function() {
     showRandomQuote();
-    populateCategoryFilter(); // Populate categories when the page loads
+    populateCategories(); // Populate categories when the page loads
 });
