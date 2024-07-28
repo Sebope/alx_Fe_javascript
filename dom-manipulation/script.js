@@ -86,7 +86,7 @@ function importFromJsonFile(event) {
         quotes = importedQuotes;
         saveQuotes();
         populateCategories(); // Update categories after import
-        showNotification('Quotes imported successfully!');
+        showNotification('Quotes synced with server!');
         showRandomQuote();
     };
     fileReader.readAsText(event.target.files[0]);
