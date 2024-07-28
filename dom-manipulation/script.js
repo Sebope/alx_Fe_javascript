@@ -164,7 +164,7 @@ async function postQuotesToServer(quotes) {
 }
 
 // Function to sync local quotes with server data
-async function syncWithServer() {
+async function syncQuotes() {
     const serverQuotes = await fetchQuotesFromServer();
     const localQuotes = JSON.parse(localStorage.getItem('quotes')) || [];
 
@@ -182,8 +182,8 @@ function init() {
     loadQuotes();
     populateCategories();
     showRandomQuote();
-    syncWithServer(); // Ensure data is synced with the server on initialization
-    setInterval(syncWithServer, 60000); // Sync every 60 seconds
+    syncQuotes(); // Ensure data is synced with the server on initialization
+    setInterval(syncQuotes, 60000); // Sync every 60 seconds
 
     // Event listeners
     document.getElementById('newQuote').addEventListener('click', showRandomQuote);
