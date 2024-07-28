@@ -9,22 +9,27 @@ function saveQuotes() {
 
 // Function to populate the category filter dropdown
 function populateCategories() {
-    const categoryFilter = document.getElementById('categoryFilter');
-    const categories = new Set();
-    
-    // Collect unique categories from quotes
-    quotes.forEach(quote => categories.add(quote.category));
-    
-    // Clear existing options
-    categoryFilter.innerHTML = '<option value="all">All Categories</option>';
-    
-    // Add options for each unique category
-    categories.forEach(category => {
-        const option = document.createElement('option');
-        option.value = category;
-        option.textContent = category;
-        categoryFilter.appendChild(option);
-    });
+  const categoryFilter = document.getElementById('categoryFilter');
+  const categories = new Set();
+
+  // Collect unique categories from quotes
+  quotes.forEach(quote => categories.add(quote.category));
+  
+  // Convert the Set to an array and then use map to create options
+  const categoriesArray = Array.from(categories);
+  
+  // Clear existing options
+  categoryFilter.innerHTML = '<option value="all">All Categories</option>';
+  
+  // Use map to create options for each unique category
+  categoriesArray.map(category => {
+      const option = document.createElement('option');
+      option.value = category;
+      option.textContent = category;
+      categoryFilter.appendChild(option);
+  });
+
+
     
     // Restore the last selected filter from local storage
     const lastFilter = localStorage.getItem('lastFilter');
